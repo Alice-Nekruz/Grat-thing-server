@@ -12,7 +12,6 @@ router.post('/create-call', (req, res, next) => {
 
   Call.create({
     topic,
-    time,
     date,
     amountOfTime,
     owner: req.user._id // req.user._id is to recognised the logged in user 

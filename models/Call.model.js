@@ -12,7 +12,6 @@ const callSchema = new Schema(
         },
         date: {
             type: Date,
-            required: true,
         },
         topic: {
             type: String,
