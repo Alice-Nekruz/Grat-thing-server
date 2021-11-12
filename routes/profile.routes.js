@@ -8,3 +8,5 @@ const Call = require('../models/Call.model');
   // GET route => to retrieve a specific profile
 
 //   });
+
+module.exports = router;

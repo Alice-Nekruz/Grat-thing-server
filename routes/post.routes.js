@@ -27,3 +27,5 @@ router.get('/posts', (req, res, next) => {
       .then(allTheProjects => res.json(allTheProjects))
       .catch(err => res.json(err));
   });
+
+module.exports = router;
