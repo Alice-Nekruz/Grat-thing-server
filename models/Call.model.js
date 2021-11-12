@@ -8,7 +8,7 @@ const callSchema = new Schema(
         },
         toWhom: {
             type: Schema.Types.ObjectId,
-            ref: 'User'
+            ref: 'User' //TODO
         },
         time: {
             type: Number,
