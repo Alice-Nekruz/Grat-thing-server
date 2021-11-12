@@ -8,11 +8,7 @@ const callSchema = new Schema(
         },
         toWhom: {
             type: Schema.Types.ObjectId,
-            ref: 'User' //TODO
-        },
-        time: {
-            type: Number,
-            required: true,
+            ref: 'User'
         },
         date: {
             type: Date,

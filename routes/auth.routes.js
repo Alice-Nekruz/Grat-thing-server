@@ -10,7 +10,7 @@ const SALT_ROUNDS = 10;
 const User = require('../models/User.model');
 
 router.post('/register', (req, res, next) => {
-  const { username, mail, password, favouritePerson } = req.body;
+  const { username, mail, password } = req.body;
 
   if (!username || !password) {
     res.status(400).json({ message: 'Provide username and password' });
@@ -30,13 +30,12 @@ router.post('/register', (req, res, next) => {
       return User.create({
         username: username,
         mail: mail,
-        password: hashedPassword,
-        favouritePerson: favouritePerson
+        password: hashedPassword
       });
     })
     .then(userFromDB => {
       console.log('Newly created user is: ', userFromDB);
-      res.status(200).json(req.user);
+      //res.json(req.user);
       res.json(userFromDB);
     })
     .catch(error => {
@@ -92,7 +91,7 @@ router.get('/loggedin', (req, res, next) => {
     return;
   }
   res.status(403).json({ message: 'Unauthorized' });
-});
+}); //TODO
 
 
 module.exports = router;

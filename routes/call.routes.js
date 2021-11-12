@@ -21,18 +21,8 @@ router.post('/create-call', (req, res, next) => {
       .catch(err => res.json(err));
   });
 
-
-  // GET route => to get all the posts
-
-router.get('/calls', (req, res, next) => {
-    Call.find()
-      .then(allTheCalls => res.json(allTheCalls))
-      .catch(err => res.json(err));
-  });
-
-
   // GET route => to retrieve a specific call
-router.get('/calls/:callid', (req, res, next) => {
+router.get('/call-details/:callid', (req, res, next) => {
     const { callid } = req.params;
    
     Call.findById(callid)
@@ -41,7 +31,7 @@ router.get('/calls/:callid', (req, res, next) => {
   });
    
   // PUT route => to update a specific call
-  router.put('/calls/:callid', (req, res, next) => {
+  router.put('/edit-call/:callid', (req, res, next) => {
     const { callid } = req.params;
    
     if (!mongoose.Types.ObjectId.isValid(callid)) {
@@ -55,7 +45,7 @@ router.get('/calls/:callid', (req, res, next) => {
   });
    
   // DELETE route => to delete a specific call
-  router.delete('/calls/:callid', (req, res, next) => {
+  router.delete('/delete-call/:callid', (req, res, next) => {
     const { callid } = req.params;
    
     if (!mongoose.Types.ObjectId.isValid(callid)) {
