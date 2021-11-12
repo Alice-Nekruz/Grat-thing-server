@@ -57,3 +57,5 @@ router.get('/call-details/:callid', (req, res, next) => {
       .then(() => res.json({ message: `Call with ${callid} is removed successfully.` }))
       .catch(error => res.json(error));
   });
+
+  module.exports = router ;
