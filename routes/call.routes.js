@@ -29,6 +29,7 @@ router.get('/call-details/:callid', (req, res, next) => {
     .catch(error => res.json(error));
 });
 
+
 // PUT route => to update a specific call
 router.put('/edit-call/:callid', (req, res, next) => {
   const { callid } = req.params;
