@@ -8,7 +8,7 @@ const Call = require('../models/Call.model');
 
 // POST route => to create a new post
 router.post('/create-call', (req, res, next) => {
-  const { topic, time, date, amountOfTime } = req.body;
+  const { topic, date, amountOfTime } = req.body;
 
   Call.create({
     topic,
