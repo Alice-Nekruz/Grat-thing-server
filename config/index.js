@@ -55,12 +55,12 @@ module.exports = (app) => {
       store: MongoStore.create({
         mongoUrl: MONGO_URI,
       }),
-      cookie: {
-        maxAge: 1000 * 60 * 60 * 24 * 365,
-        sameSite: "secure",
-        //this used to be set to "none"
-        secure: process.env.NODE_ENV === "production",
-      },
+      // cookie: {
+      //   maxAge: 1000 * 60 * 60 * 24 * 365,
+      //   sameSite: "secure",
+      //   //this used to be set to "none"
+      //   secure: process.env.NODE_ENV === "production",
+      // },
     })
   );
 
