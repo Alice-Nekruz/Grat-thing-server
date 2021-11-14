@@ -14,6 +14,9 @@ const userSchema = new Schema(
     }
   },
   {
+    calls : [{ type: Schema.Types.ObjectId, ref: 'Call' }],
+  },
+  {
     timestamps: true,
   }
 );

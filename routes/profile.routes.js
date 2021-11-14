@@ -7,12 +7,11 @@ const mongoose = require('mongoose');
 const User = require('../models/User.model');
 
 
-router.get('/my-profile/:id', (req, res, next) => {
-    
-    const { id } = req.params;
+router.get('/my-profile', (req, res, next) => {
 
+    console.log(req.session.user)
 
-    User.findById(id)
+    User.findById(req.session.user._id)
       .then(allTheProfile => res.json(allTheProfile))
       .catch(err => res.json(err));
   });
