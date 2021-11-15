@@ -3,25 +3,20 @@ const router = express.Router();
 const mongoose = require('mongoose');
 
 const Call = require('../models/Call.model');
-const User = require('../models/User.model');
 
 
 
 
 // POST route => to create a new call
 router.post('/create-call', (req, res, next) => {
-  const { topic, date, amountOfTime, userID } = req.body;
+  const { topic, date, amountOfTime } = req.body;
+
 
   Call.create({
     topic,
     date,
     amountOfTime,
-    owner: userID
-  })
-    .then(newlyCreatedCallFromDB => {
-      return User.findByIdAndUpdate(userID, {
-      $push: { call : newlyCreatedCallFromDB._id }
-    });
+    owner: req.session.user._id
   })
     .then(response => res.json(response))
     .catch(err => res.json(err));

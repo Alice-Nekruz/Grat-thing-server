@@ -1,5 +1,4 @@
 
-
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
@@ -7,14 +6,14 @@ const mongoose = require('mongoose');
 const User = require('../models/User.model');
 
 
-router.get('/my-profile', (req, res, next) => {
+router.get('/my-profile/:id', (req, res, next) => {
 
-    console.log(req.session.user)
+    const {id} = req.params
 
-    User.findById(req.session.user._id)
+    User.findById(id)
       .then(allTheProfile => res.json(allTheProfile))
       .catch(err => res.json(err));
-  });
+});
 
 
-module.exports = router;
+  module.exports = router;

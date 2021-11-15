@@ -13,7 +13,7 @@ router.post('/create-post', (req, res, next) => {
     Post.create({
       title,
       text,
-      owner: req.user._id // req.user._id is to recognised the logged in user 
+      owner: req.session.user._id // req.user._id is to recognised the logged in user 
     })
       .then(response => res.json(response))
       .catch(err => res.json(err));
