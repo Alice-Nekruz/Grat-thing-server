@@ -9,18 +9,27 @@ const Call = require('../models/Call.model');
 
 // POST route => to create a new call
 router.post('/create-call', (req, res, next) => {
-  const { topic, date, amountOfTime } = req.body;
+  const { topic, date, amountOfTime,toWhom  } = req.body;
 
 
   Call.create({
     topic,
     date,
     amountOfTime,
+    toWhom,
     owner: req.session.user._id
   })
     .then(response => res.json(response))
     .catch(err => res.json(err));
 });
+
+//Get route ==> to retrive list of calls 
+router.get('/call-list', (req, res, next) => {
+  
+  Call.find()
+  .then(call => res.json(call))
+  .catch(error => res.json(error));
+})
 
 // GET route => to retrieve a specific call
 router.get('/call-details/:callid', (req, res, next) => {
