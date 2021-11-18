@@ -26,7 +26,8 @@ router.post('/create-post', (req, res, next) => {
 
 router.get('/posts', (req, res, next) => {
     Post.find()
-      .then(allTheProjects => res.json(allTheProjects))
+    .populate("owner")
+      .then(allThePosts=> res.json(allThePosts))
       .catch(err => res.json(err));
   });
 
