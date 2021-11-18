@@ -11,7 +11,20 @@ const userSchema = new Schema(
     password: {
       type: String,
       required: true
-    }
+    },
+    name: {
+      type: String,
+      trim: true
+    },
+    gender: {
+      type: String,
+      trim: true
+    },
+    hobbies: {
+      type: String,
+      trim: true
+    },
+    imageUrl: String
   },
   {
     calls : [{ type: Schema.Types.ObjectId, ref: 'Call' }],
